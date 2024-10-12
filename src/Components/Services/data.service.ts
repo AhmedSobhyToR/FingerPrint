@@ -74,7 +74,7 @@ export class DataService {
   createPermitRequest(){
     this.intializePermit();
     this.permit={
-      id:((this.permits.length)).toString(),
+      id:((this.permits.length)+1).toString(),
       user : this.user,
       project : this.project,
       excavation : this.excavationDetails,

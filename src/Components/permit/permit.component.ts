@@ -11,7 +11,10 @@ import { Permit } from '../Models/permit.model';
   styleUrl: './permit.component.css'
 })
 export class PermitComponent {
+
   constructor(private dataSer: DataService, private router:Router){
+  }
+  ngOnInit(){
 
   }
   createPermitRequest(){
@@ -22,9 +25,10 @@ export class PermitComponent {
     return this.dataSer.getPermits;
   }
   getDetailedLocation(permit: Permit){
-    return this.dataSer.permits[+permit.id].excavation.excavationLocation.street +
-     ', ' + this.dataSer.permits[+permit.id].excavation.excavationLocation.area  +
-     ', ' + this.dataSer.permits[+permit.id].excavation.excavationLocation.city
+    
+    return permit.excavation.excavationLocation.street +
+     ', ' + permit.excavation.excavationLocation.area  +
+     ', ' + permit.excavation.excavationLocation.city
   }
 
   viewPermit(permitId: string){

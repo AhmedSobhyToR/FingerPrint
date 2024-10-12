@@ -1,5 +1,4 @@
 <div>
-    <h2>hey</h2>
 <a routerLink="/select-project"><input type="button" value="New Request" (click)="createPermitRequest()"></a>
 <table>
     <thead>
@@ -13,7 +12,6 @@
     </thead>
     <tbody>
         @if (getPermits().length>0) {
-       
             @for (permit of getPermits(); track $index) {
                 <tr (click)="viewPermit(permit.id)">
                     <td>{{permit.id}}</td>

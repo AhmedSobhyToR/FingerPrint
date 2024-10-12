@@ -25,9 +25,9 @@ export class PermitDetailsComponent {
   }
 
   getDetailedLocation(){
-    return this.dataSer.permits[+this.permit.id].excavation.excavationLocation.street +
-     ', ' + this.dataSer.permits[+this.permit.id].excavation.excavationLocation.area  +
-     ', ' + this.dataSer.permits[+this.permit.id].excavation.excavationLocation.city
+    return this.permit.excavation.excavationLocation.street +
+     ', ' + this.permit.excavation.excavationLocation.area  +
+     ', ' + this.permit.excavation.excavationLocation.city
   }
 
   goBack(){
