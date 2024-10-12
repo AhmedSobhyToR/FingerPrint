@@ -1,0 +1,82 @@
+.excavation-data-main{
+    background-color: rgba(255, 255, 255, 0.578);
+    padding: 1rem 2rem;
+    border-radius: 0.7rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    min-height: calc(100vh - 150px);
+
+}
+
+.excavation-header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+}
+
+
+.excavation-header h2{
+    background-image: linear-gradient(to right, rgba(24, 24, 24, 0.762), rgb(53, 0, 169));
+    background-clip: text;
+    color: transparent;
+}
+
+.excavation-header div{
+    width: 40px ;
+    height: 40px;;
+    border-radius: 50%;
+    background-image: linear-gradient(to right, rgba(24, 24, 24, 0.762), rgb(53, 0, 169));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.excavation-header img{
+    width: 15px;
+}
+
+/* Form */
+#excavationForm{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.form-input{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+select, input[type='text']{
+    width: 200px;
+    height: 40px;
+    padding-left: 0.3rem;
+    outline: none;
+    border-radius: 0.3rem;
+    background-color: white;
+    border: 0.5px solid grey;
+    font-size: 0.9rem;
+}
+option{
+    border-radius: 0.7rem;
+}
+
+textarea{
+    width: 600px;
+    height: 200px;
+    padding: 0.5rem;
+    font-size: 1.1rem;
+    resize: none;
+    scrollbar-width: thin;
+    outline: none;
+    border: 0.5px solid grey;
+    border-radius: 0.7rem;
+
+}
+
+
+.errors{
+    justify-content: flex-start;
+}
+

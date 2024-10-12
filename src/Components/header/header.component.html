@@ -1,0 +1,19 @@
+<nav>
+    <a routerLink="/" routerLinkActive="router-link-active" ><img src="assets/logom.png" id="logo" alt="logo"></a>
+
+    <div class="user-info">
+        <div class="user-info-left">
+            <img src="assets/user-regular.svg" alt="">
+        </div>
+
+        <div class="user-info-right">
+            <p>{{getUserDetails().name}}</p>
+            <div >
+                <span>{{getUserDetails().balance}}$</span>
+                <img src="assets/chevron-down-solid.svg" alt="">
+            </div>
+
+        </div>
+
+    </div>
+</nav>

@@ -1,0 +1,35 @@
+<div>
+<a routerLink="/select-project"><input type="button" value="New Request" (click)="createPermitRequest()"></a>
+<table>
+    <thead>
+        <th>Permit ID</th>
+        <th>Project ID</th>
+        <th>Project Name</th>
+        <th>Excavation Duration</th>
+        <th>Excavation Location</th>
+        <th>Excavation Price</th>
+        <th>Status</th>
+    </thead>
+    <tbody>
+        @if (getPermits().length>0) {
+       
+            @for (permit of getPermits(); track $index) {
+                <tr (click)="viewPermit(permit.id)">
+                    <td>{{permit.id}}</td>
+                    <td>{{permit.project.projectId}}</td>
+                    <td>{{permit.project.projectName}}</td>
+                    <td>{{permit.excavation.excavationDuration}} Days</td>
+                    <td>{{getDetailedLocation(permit)}}</td>
+                    <td>{{permit.excavation.price}} $</td>
+                    <td>{{permit.status}}</td>
+                </tr>
+            }
+      
+        }
+
+        @else {
+              <td colspan="7" class="no-data">There are no permits to show</td>
+           
+        }
+    </tbody>
+</table>

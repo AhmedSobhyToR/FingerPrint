@@ -1,0 +1,75 @@
+.permit-details{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+    background-color: #616161b1;
+    gap: 1rem;
+    min-height: calc(75vh);
+    padding: 3rem;
+    border-radius: 0.7rem;
+}
+.permit-details-header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.permit-details-header-right{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.permit-details-header-right h2{
+    background-image: linear-gradient(to right, rgba(24, 24, 24, 0.762), rgb(53, 0, 169));
+    background-clip: text;
+    color: transparent;
+}
+.permit-details-header-right img{
+    width: 15px;
+}
+.permit-details-header-right div{
+    width: 40px ;
+    height: 40px;;
+    border-radius: 50%;
+    background-image: linear-gradient(to right, rgba(24, 24, 24, 0.762), rgb(53, 0, 169));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.permit-details-header input[type='button']{
+    width: 150px;
+    height: 40px;
+    cursor: pointer;
+    border: none;
+    border-radius: 0.7rem;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+.permit-details-body{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.project-details,
+ .excavation-details{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.project-details p,
+ .excavation-details p{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+p span{
+    min-width: 200px;
+    text-align: center;
+    color: white;
+
+}
