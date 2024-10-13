@@ -5,7 +5,7 @@
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    min-height: calc(100vh - 150px);
+    
 
 }
 
@@ -63,7 +63,7 @@ option{
 }
 
 textarea{
-    width: 600px;
+    width: 650px;
     height: 200px;
     padding: 0.5rem;
     font-size: 1.1rem;
@@ -86,5 +86,10 @@ textarea{
 }
 .row{
     justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#gis{
+    margin-right: 1rem;
 }
 
