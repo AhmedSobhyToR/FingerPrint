@@ -15,7 +15,7 @@ export class DataService {
   project!:Project;
   permit!:Permit;
   permits:Permit[]= [];
-
+  streetGIS!: string;
   excavationDataForm!: FormGroup;
 
   // User
@@ -47,20 +47,23 @@ export class DataService {
     return this.excavationDataForm;
   }
 
+
   setExcavationDetails(excavationDataForm: FormGroup){
+    console.log(this.streetGIS);
     this.excavationDataForm = excavationDataForm;
     this.excavationDetails={
       excavationMethod:this.getExcavation.value['excavationMethod'],
       excavationType: this.getExcavation.value['excavationType'],
       excavationDuration: this.getExcavation.value['excavationDuration'],
       excavationLocation:{
-        street: this.getExcavation.get('excavationLocation')?.value['street'],
+        street:this.getExcavation.get('excavationLocation')?.value['street'],
         area: this.getExcavation.get('excavationLocation')?.value['area'],
         city: this.getExcavation.get('excavationLocation')?.value['city']
       },
       excavationDescription:this.getExcavation.value['excavationDescription'],
       price: Math.ceil(Math.random()* 1700)
     }
+    // this.permit.excavation.excavationLocation.street = this.streetGIS;
     this.permit.excavation = this.excavationDetails;
   }
 
@@ -68,9 +71,20 @@ export class DataService {
     return this.excavationDetails;
   }
 
+  setStreetName(stName: string){
+    this.streetGIS = stName;
+    this.excavationDetails.excavationLocation.street=stName;
+    this.excavationDataForm.patchValue(
+      this.excavationDetails
+    )
+    
+  }
+
   resetExcavationDetails(){
     this.excavationDataForm.reset();
   }
+
+
   // Permit
   get getDate(){
     const today = new Date();

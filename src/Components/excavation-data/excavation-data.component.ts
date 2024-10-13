@@ -8,6 +8,7 @@ import { Excavation } from '../Models/excavation.model';
 import { ProgressBarComponent } from "../progress-bar/progress-bar.component";
 import { ExcavationDataEnums } from '../Enums/excavation-data.enum';
 import { GISComponent } from "../gis/gis.component";
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-excavation-data',
   standalone: true,
@@ -19,6 +20,7 @@ export class ExcavationDataComponent {
   excavationDataEnums = new ExcavationDataEnums();
   excavationMethods!: string[];
   excavationTypes!: string[];
+  streetGISSubscription!: Subscription;
   constructor(private dataSer:DataService){
     
   }
@@ -40,6 +42,9 @@ export class ExcavationDataComponent {
     this.loadExcavationData();
     console.log(this.dataSer.permit);
     this.isFormFilled();
+    this.dataSer.setExcavationDetails(this.excavationDataForm);
+    console.log(this.isStreetOnMap);
+
   }
 
   // Load enums into inputs in form
@@ -77,6 +82,10 @@ export class ExcavationDataComponent {
     this.dataSer.setPermitRequestStatus(2);
     // console.log(this.dataSer.getExcavationDetails);
 
+  }
+
+  get isStreetOnMap(){
+    return this.dataSer.streetGIS;
   }
 
   get excavationMethod(){
