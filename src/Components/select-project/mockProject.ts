@@ -3,7 +3,7 @@ export const mockProjects = [
         projectId: 'P1',
         projectName: 'Bridge Construction',
         projectType: 'Construction',
-        projectStatus: 'In Progress'
+        projectStatus: 'Accepted'
     },
     {
         projectId: 'P2',
@@ -39,7 +39,7 @@ export const mockProjects = [
         projectId: 'P7',
         projectName: 'Quantum Computing Research',
         projectType: 'Research',
-        projectStatus: 'Completed'
+        projectStatus: 'Accepted'
     },
     {
         projectId: 'P8',
@@ -57,6 +57,6 @@ export const mockProjects = [
         projectId: 'P10',
         projectName: 'Sustainable Energy Initiative',
         projectType: 'Research',
-        projectStatus: 'In Progress'
+        projectStatus: 'Accepted'
     }
 ];

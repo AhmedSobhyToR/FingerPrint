@@ -1,9 +1,9 @@
 export class PermitEnums{
     permitStatus = [
-        {key:0, value:'Waiting for Review'},
+        {key:0, value:'Under Review'},
         {key:1, value:'Approved'},
         {key:2, value:'Rejected'},
-        {key:3, value:'Closed'},
+        {key:3, value:'Completed'},
     ]
 
     permitRequestStatus = [

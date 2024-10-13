@@ -1,5 +1,5 @@
 <h2>Permit Request</h2>
-<app-progress-bar ></app-progress-bar>
+<app-progress-bar [hidden]="showConfirmation"></app-progress-bar>
 <div class="confirm-pay-bg" *ngIf="showConfirmation" (click)="onCancelPayment()"> </div>
 <dialog class="confirm-pay" *ngIf="showConfirmation">
     @if (!showFailedPayment) {
@@ -42,20 +42,15 @@
             <p>Phone: <span>{{getUserDetails().phone}}</span></p>
             <p>Balance: <span>{{getUserDetails().balance}}$</span></p>
         </div>
-        <h3>Excavation Details</h3>
+        <h3>Request Details</h3>
         <div class="excavation-invoice-details">
                 <p>Project: <span>{{getProjectDetails().projectName}}</span></p>
-                <p>Excavation Method: <span>{{getExcavationDetails().excavationMethod}}</span></p>
-                <p>Excavation Type: <span>{{getExcavationDetails().excavationType}}</span></p>
-                <p>Excavation Duration: <span>{{getExcavationDetails().excavationDuration}}</span></p>
-                <p>Street: <span>{{getExcavationDetails().excavationLocation.street}}</span></p>
-                <p>Area: <span>{{getExcavationDetails().excavationLocation.area}}</span></p>
-                <p>City: <span>{{getExcavationDetails().excavationLocation.city}}</span></p>
+                <p>Date: <span>{{getDate()}}</span></p>
         </div>
         <h3>Payment Details</h3>
         <div class="invoice-pay-details">
             <p>Payment Method: <span>{{getUserDetails().paymentMethod}}</span></p>
-            <p>Price: <span>{{getExcavationDetails().price}}$</span></p>
+            <p>Cost: <span>{{getExcavationDetails().price}}$</span></p>
         </div>
     </div>
 

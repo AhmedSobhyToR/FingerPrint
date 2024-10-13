@@ -4,6 +4,7 @@ import { FormGroup } from '@angular/forms';
 import { Excavation } from '../Models/excavation.model';
 import { User } from '../Models/user.model';
 import { Permit } from '../Models/permit.model';
+import { DatePipe } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,7 @@ export class DataService {
   permits:Permit[]= [];
 
   excavationDataForm!: FormGroup;
+
   // User
   setUser(){
     this.user={
@@ -70,7 +72,14 @@ export class DataService {
     this.excavationDataForm.reset();
   }
   // Permit
-  
+  get getDate(){
+    const today = new Date();
+    const day = today.getDate();
+    const month = today.getMonth() + 1;
+    const year = today.getFullYear();
+
+    return `${day}/${month}/${year}`;
+  }
   createPermitRequest(){
     this.intializePermit();
     this.permit={
@@ -79,7 +88,8 @@ export class DataService {
       project : this.project,
       excavation : this.excavationDetails,
       status: 'Pending',
-      RequestStatus: 0
+      RequestStatus: 0,
+      date: this.getDate
     }
     console.log(this.permit);
   }

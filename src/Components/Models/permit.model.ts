@@ -10,5 +10,5 @@ export interface Permit{
     status:string;
     RequestStatus: number;
     RequestStatusJson?: string;
-
+    date: string | Date;
 }

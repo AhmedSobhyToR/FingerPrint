@@ -46,30 +46,44 @@
     font-size: 0.9rem;
     font-weight: bold;
 }
+
 .permit-details-body{
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    font-size: 1.2rem;
-    font-weight: bold;
+    gap: 2rem;
+
 }
+
+.permit-details-body h2{
+    color: white;
+}
+
 .project-details,
  .excavation-details{
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 1rem;
 }
-
-.project-details p,
- .excavation-details p{
+.row div{
+    background-color: grey;
+    width: 30%;
+    min-height: 60px;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
     display: flex;
-    justify-content: space-between;
-    text-align: center;
+    flex-direction: column;
+    gap: 0.3rem;
 }
 
-p span{
-    min-width: 200px;
-    text-align: center;
+.row label{
     color: white;
+    /* font-weight: bold; */
+    font-weight: 500;
+}
+.row p{
+   font-weight: 500;
+}
 
+.full-row div{
+    width: 93%;
 }

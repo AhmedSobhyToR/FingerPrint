@@ -8,6 +8,7 @@
         <th>Excavation Duration</th>
         <th>Excavation Location</th>
         <th>Excavation Price</th>
+        <th>Request Date</th>
         <th>Status</th>
     </thead>
     <tbody>
@@ -20,6 +21,7 @@
                     <td>{{permit.excavation.excavationDuration}} Days</td>
                     <td>{{getDetailedLocation(permit)}}</td>
                     <td>{{permit.excavation.price}} $</td>
+                    <td>{{permit.date}}</td>
                     <td>{{permit.status}}</td>
                 </tr>
             }

@@ -25,6 +25,9 @@ export class PaymentComponent {
     this.getExcavationDetails();
   }
 
+  getDate(){
+    return this.dataSer.permit.date
+  }
    getUserDetails(){
     return this.dataSer.getUser;
   }

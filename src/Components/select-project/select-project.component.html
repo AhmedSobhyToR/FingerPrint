@@ -23,7 +23,7 @@
         </thead>
         <tbody>
             
-                @for (prj of projects; track $index) {
+                @for (prj of availableProjects; track $index) {
                     <tr (click)="onSelectProject(prj)" [class.active]="prj===selectedProject">
                         <td>{{ prj.projectId }}</td>
                         <td>{{ prj.projectName }}</td>

@@ -14,12 +14,14 @@ import { ProgressBarComponent } from "../progress-bar/progress-bar.component";
 })
 export class SelectProjectComponent {
   projects:Project[] = mockProjects;
+  availableProjects:Project[] = [];
   selectedProject!: Project;
   constructor(private dataSer:DataService){
 
   }
 
   ngOnInit(){
+    this.availableProjects = this.projects.filter(proj => proj.projectStatus === 'Accepted')
     if(this.dataSer.permit){
        this.selectedProject = this.dataSer.permit.project;
     }

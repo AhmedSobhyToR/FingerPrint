@@ -5,26 +5,86 @@
             <div>
                 <img src="assets/credit-card-solid.svg" alt="Invoice">
             </div>
-            <h2>Permit Details</h2>
+            <h2>Permit Request Details</h2>
         </div>
         <input type="button" value="Back" (click)="goBack()">
     </div>
     <div class="permit-details-body">
+
         <div class="project-details">
-            <p>Permit Status: <span>{{permit.status}}</span></p>
-            <p>Permit Number: <span>{{permit.id}}</span></p>
-            <p>Project Number: <span>{{permit.project.projectId}}</span></p>
-            <p>Project Name: <span>{{permit.project.projectName}}</span></p>
-            <p>Project Type <span>{{permit.project.projectType}}</span></p>
-            <p>Project Status <span>{{permit.project.projectStatus}}</span></p>
+            <h2>Project Details</h2>
+            <div class="row">
+                <div>
+                    <label>Permit Status</label>
+                    <p>{{permit.status}}</p>
+                </div>
+                <div>
+                    <label>Permit Number</label> 
+                    <p>{{permit.id}}</p>
+                </div>
+                
+                <div> 
+                    <label>Project Number</label>
+                    <p>{{permit.project.projectId}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <label>Project Name</label>
+                     <p>{{permit.project.projectName}}</p>
+                </div>
+
+                <div>
+                    <label>Project Type</label> 
+                    <p>{{permit.project.projectType}}</p>
+                </div>
+
+                <div>
+                    <label>Project Status</label>
+                    <p>{{permit.project.projectStatus}}</p>
+                </div>
+            </div>
+
         </div>
+
         <div class="excavation-details">
-            <p>Excavation Method: <span>{{permit.excavation.excavationMethod}}</span></p>
-            <p>Excavation Type: <span>{{permit.excavation.excavationType}}</span></p>
-            <p>Excavation Duration: <span>{{permit.excavation.excavationDuration}} Days</span></p>
-            <p>Excavation Location: <span>{{getDetailedLocation()}}</span></p>
-            <p>Excavation Description: <span>{{permit.excavation.excavationDescription}}</span></p>
-            <p>Price: <span>{{permit.excavation.price}} $</span></p>
+            <h2>Excavation Details</h2>
+            <div class="row">
+                <div>
+                    <label>Excavation Method</label>
+                    <p>{{permit.excavation.excavationMethod}}</p>
+                </div>
+                <div>
+                    <label>Excavation Type</label>
+                     <p>{{permit.excavation.excavationType}}</p>
+                </div>
+                <div>
+                    <label>Excavation Duration</label>
+                    <p>{{permit.excavation.excavationDuration}} Days</p>
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <label>Excavation Location</label>
+                    <p>{{getDetailedLocation()}}</p>
+                </div>
+                <div>
+                    <label>Date</label>
+                    <p>{{permit.date}}</p>
+                </div>
+                <div>
+                    <label>Price</label> 
+                    <p>{{permit.excavation.price}} $</p>
+                </div>
+            </div>
+
+            <div class="row full-row">
+                <div>
+                    <label>Excavation Description</label>
+                    <p>{{permit.excavation.excavationDescription}}</p>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
