@@ -1,4 +1,3 @@
-<h2>Permit Request</h2>
 <app-progress-bar></app-progress-bar>
 <div class="excavation-data-main">
     <div class="excavation-header">
@@ -15,8 +14,10 @@
         }
     </div>
 
-    <div class="row">
+
         <form [formGroup]="excavationDataForm" id="excavationForm">
+        <div class="form-content">
+        <div >
             <div class="row">
                 <div class="form-input">
                     <label >Excavation Method <span class="required">*</span> </label>
@@ -71,7 +72,6 @@
                 </div>
             </div>
     
-            <h3>Excavation Location</h3>
             <form formGroupName="excavationLocation" >
             <div class="row">
                     <div class="form-input">
@@ -118,6 +118,10 @@
                 </div>
             </div>
     
+        </div>
+    
+        <app-gis id="gis"></app-gis>
+    </div>
                 <div class="control-buttons">
                     <div class="control-buttons-left">
                         <a [routerLink]="['/select-project']"><input type="button" value="Prev" id="prev"></a>
@@ -129,13 +133,12 @@
                     </div>
     
                 </div>
-    
+
+     
+          
         </form>
 
-        <app-gis id="gis"></app-gis>
 
-
-    </div>
 
    
 

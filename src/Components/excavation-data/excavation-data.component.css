@@ -50,7 +50,7 @@
 
 select, input[type='text']{
     width: 200px;
-    height: 40px;
+    height: 50px;
     padding-left: 0.3rem;
     outline: none;
     border-radius: 0.3rem;
@@ -58,12 +58,17 @@ select, input[type='text']{
     border: 0.5px solid grey;
     font-size: 0.9rem;
 }
+
+label{
+    font-weight: 500;
+}
+
 option{
     border-radius: 0.7rem;
 }
 
 textarea{
-    width: 650px;
+    width: 630px;
     height: 200px;
     padding: 0.5rem;
     font-size: 1.1rem;
@@ -80,16 +85,24 @@ textarea{
     justify-content: flex-start;
 }
 
-.control-buttons-right{
+.form-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    gap: 0.5rem;
+}
+
+/* .control-buttons-right{
     position: absolute;
     right: 5rem;
-}
-.row{
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
+} */
 
 #gis{
-    margin-right: 1rem;
+    margin-right: 2rem;
 }
 
+.row{
+    margin-bottom: 1rem;
+}
