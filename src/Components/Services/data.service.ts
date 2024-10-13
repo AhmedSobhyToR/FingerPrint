@@ -15,7 +15,6 @@ export class DataService {
   project!:Project;
   permit!:Permit;
   permits:Permit[]= [];
-  streetGIS!: string;
   excavationDataForm!: FormGroup;
 
   // User
@@ -49,7 +48,6 @@ export class DataService {
 
 
   setExcavationDetails(excavationDataForm: FormGroup){
-    console.log(this.streetGIS);
     this.excavationDataForm = excavationDataForm;
     this.excavationDetails={
       excavationMethod:this.getExcavation.value['excavationMethod'],
@@ -72,12 +70,18 @@ export class DataService {
   }
 
   setStreetName(stName: string){
-    this.streetGIS = stName;
     this.excavationDetails.excavationLocation.street=stName;
     this.excavationDataForm.patchValue(
       this.excavationDetails
     )
     
+  }
+
+  setCityName(cityName:string){
+    this.excavationDetails.excavationLocation.city=cityName;
+    this.excavationDataForm.patchValue(
+      this.excavationDetails
+    )
   }
 
   resetExcavationDetails(){

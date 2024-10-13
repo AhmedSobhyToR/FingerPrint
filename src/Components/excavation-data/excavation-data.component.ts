@@ -43,7 +43,6 @@ export class ExcavationDataComponent {
     console.log(this.dataSer.permit);
     this.isFormFilled();
     this.dataSer.setExcavationDetails(this.excavationDataForm);
-    console.log(this.isStreetOnMap);
 
   }
 
@@ -82,10 +81,6 @@ export class ExcavationDataComponent {
     this.dataSer.setPermitRequestStatus(2);
     // console.log(this.dataSer.getExcavationDetails);
 
-  }
-
-  get isStreetOnMap(){
-    return this.dataSer.streetGIS;
   }
 
   get excavationMethod(){

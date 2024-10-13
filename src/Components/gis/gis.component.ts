@@ -42,6 +42,7 @@ private onMapClick(e: L.LeafletMouseEvent): void {
         this.lastLine = L.polyline(this.points, { color: 'blue' }).addTo(this.map);
 
         this.getStreetNames();
+        this.getCityName(this.points[0]);
         this.points = [];
     }
 }
@@ -72,4 +73,21 @@ private getStreetNames(): void {
       .catch(err => console.error('Error fetching street names:', err));
 }
 
+
+
+private getCityName(latlng: L.LatLng) {
+  const lat = latlng.lat;
+  const lng = latlng.lng;
+
+  fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json`)
+    .then(response => response.json())
+    .then(data => {
+      if (data && data.address) {
+        const city = data.address.city || data.address.town || data.address.village;
+        this.dataSer.setCityName(city)
+     
+      } 
+    })
+    .catch(error => console.error('Error fetching city name:', error));
+}
 }
