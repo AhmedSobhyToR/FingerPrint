@@ -32,8 +32,8 @@ export class ExcavationDataComponent {
       Validators.pattern('[0-9]{1,}'), Validators.min(1), Validators.max(100)]),
     excavationLocation: new FormGroup({
       street: new FormControl('', [Validators.required]),
-      area: new FormControl('' , [Validators.required, Validators.pattern('[A-Za-z]{1,}')]),
-      city: new FormControl('', [Validators.required, Validators.pattern('[A-Za-z]{1,}')]),
+      area: new FormControl('' , [Validators.required]),
+      city: new FormControl('', [Validators.required]),
     }),
     excavationDescription: new FormControl('')
   })  
