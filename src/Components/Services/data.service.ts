@@ -68,8 +68,14 @@ export class DataService {
   get getExcavationDetails(){
     return this.excavationDetails;
   }
-
+  setExcavationData(){
+    this.excavationDetails.excavationMethod = this.getExcavation.value['excavationMethod'];
+    this.excavationDetails.excavationType = this.getExcavation.value['excavationType'];
+    this.excavationDetails.excavationDuration = this.getExcavation.value['excavationDuration'];
+    this.excavationDetails.excavationDescription = this.getExcavation.value['excavationDescription'];
+  }
   setStreetName(stName: string){
+    this.setExcavationData();
     this.excavationDetails.excavationLocation.street=stName;
     this.excavationDataForm.patchValue(
       this.excavationDetails
@@ -78,12 +84,14 @@ export class DataService {
   }
 
   setCityName(cityName:string){
+    this.setExcavationData();
     this.excavationDetails.excavationLocation.city=cityName;
     this.excavationDataForm.patchValue(
       this.excavationDetails
     )
   }
   setAreaName(areaName:string){
+    this.setExcavationData();
     this.excavationDetails.excavationLocation.area=areaName;
     this.excavationDataForm.patchValue(
       this.excavationDetails

@@ -43,6 +43,7 @@ export class ExcavationDataComponent {
     // console.log(this.dataSer.permit);
     this.isFormFilled();
     this.dataSer.setExcavationDetails(this.excavationDataForm);
+   
   }
 
   // Load enums into inputs in form
