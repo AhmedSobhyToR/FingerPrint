@@ -80,3 +80,11 @@ textarea{
     justify-content: flex-start;
 }
 
+.control-buttons-right{
+    position: absolute;
+    right: 5rem;
+}
+.row{
+    justify-content: space-between;
+}
+

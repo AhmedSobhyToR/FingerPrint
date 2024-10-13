@@ -7,10 +7,11 @@ import { DataService } from '../Services/data.service';
 import { Excavation } from '../Models/excavation.model';
 import { ProgressBarComponent } from "../progress-bar/progress-bar.component";
 import { ExcavationDataEnums } from '../Enums/excavation-data.enum';
+import { GISComponent } from "../gis/gis.component";
 @Component({
   selector: 'app-excavation-data',
   standalone: true,
-  imports: [RouterLink, ReactiveFormsModule, JsonPipe, ProgressBarComponent],
+  imports: [RouterLink, ReactiveFormsModule, JsonPipe, ProgressBarComponent, GISComponent],
   templateUrl: './excavation-data.component.html',
   styleUrl: './excavation-data.component.css'
 })
