@@ -83,6 +83,12 @@ export class DataService {
       this.excavationDetails
     )
   }
+  setAreaName(areaName:string){
+    this.excavationDetails.excavationLocation.area=areaName;
+    this.excavationDataForm.patchValue(
+      this.excavationDetails
+    )
+  }
 
   resetExcavationDetails(){
     this.excavationDataForm.reset();

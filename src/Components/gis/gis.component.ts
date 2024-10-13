@@ -42,7 +42,7 @@ private onMapClick(e: L.LeafletMouseEvent): void {
         this.lastLine = L.polyline(this.points, { color: 'blue' }).addTo(this.map);
 
         this.getStreetNames();
-        this.getCityName(this.points[0]);
+        this.getCityAndAreaName(this.points[0]);
         this.points = [];
     }
 }
@@ -75,7 +75,7 @@ private getStreetNames(): void {
 
 
 
-private getCityName(latlng: L.LatLng) {
+getCityAndAreaName(latlng: L.LatLng) {
   const lat = latlng.lat;
   const lng = latlng.lng;
 
@@ -84,10 +84,15 @@ private getCityName(latlng: L.LatLng) {
     .then(data => {
       if (data && data.address) {
         const city = data.address.city || data.address.town || data.address.village;
-        this.dataSer.setCityName(city)
-     
-      } 
+        const area = data.address.suburb || data.address.neighbourhood || data.address.hamlet;
+        this.dataSer.setCityName(city);
+        this.dataSer.setAreaName(area);
+
+      } else {
+        console.log('City and Area not found');
+      }
     })
-    .catch(error => console.error('Error fetching city name:', error));
+    .catch(error => console.error('Error fetching location data:', error));
 }
+
 }
