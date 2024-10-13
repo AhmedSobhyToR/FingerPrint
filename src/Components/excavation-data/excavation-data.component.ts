@@ -40,10 +40,9 @@ export class ExcavationDataComponent {
 
   ngOnInit(){
     this.loadExcavationData();
-    console.log(this.dataSer.permit);
+    // console.log(this.dataSer.permit);
     this.isFormFilled();
     this.dataSer.setExcavationDetails(this.excavationDataForm);
-
   }
 
   // Load enums into inputs in form
@@ -67,11 +66,8 @@ export class ExcavationDataComponent {
   }
 
   onCancel(){
-
     this.excavationDataForm.reset();
     this.dataSer.setPermitRequestStatus(0);
-
-
   }
   onSubmit(){
     if(!this.excavationDataForm.valid){
