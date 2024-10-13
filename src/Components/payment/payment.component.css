@@ -48,6 +48,10 @@
     flex-direction: column;
     text-align: center;
     gap: 0.5rem;
+    border: 2px solid white;
+    box-shadow: 1px 1px 3px 1px white, -1px -1px 3px 1px white;
+    border-radius: 0.7rem;
+    min-height: 500px;
 }
 
 .invoice-details h3{
