@@ -10,12 +10,13 @@ import { DatePipe } from '@angular/common';
   providedIn: 'root'
 })
 export class DataService {
-  user!:User;
-  excavationDetails!:Excavation;
-  project!:Project;
-  permit!:Permit;
-  permits:Permit[]= [];
-  excavationDataForm!: FormGroup;
+  private user!:User;
+  private excavationDetails!:Excavation;
+  private project!:Project;
+  private permit!:Permit;
+  private permits:Permit[]= [];
+  private excavationDataForm!: FormGroup;
+  private GISLine!: L.LatLng[]|undefined;
 
   // User
   setUser(){
@@ -23,7 +24,7 @@ export class DataService {
       name:"Ahmed Sobhy",
       phone:"0100000000",
       paymentMethod:"Credit Card",
-      balance: 5000
+      balance: 3000
     }
   }
 
@@ -43,12 +44,14 @@ export class DataService {
 
   // Excavation
   get getExcavation(){
-    return this.excavationDataForm;
+    return this.excavationDataForm
   }
 
-
-  setExcavationDetails(excavationDataForm: FormGroup){
+  setExcavationForm(excavationDataForm: FormGroup){
     this.excavationDataForm = excavationDataForm;
+  }
+
+  setExcavationDetails(){
     this.excavationDetails={
       excavationMethod:this.getExcavation.value['excavationMethod'],
       excavationType: this.getExcavation.value['excavationType'],
@@ -59,49 +62,50 @@ export class DataService {
         city: this.getExcavation.get('excavationLocation')?.value['city']
       },
       excavationDescription:this.getExcavation.value['excavationDescription'],
-      price: Math.ceil(Math.random()* 1700)
+      // price: Math.ceil(Math.random()* 1700)
+      price: 1200
     }
-    // this.permit.excavation.excavationLocation.street = this.streetGIS;
     this.permit.excavation = this.excavationDetails;
   }
 
-  get getExcavationDetails(){
+   get getExcavationDetails(){
+    // console.log(this.excavationDetails);
     return this.excavationDetails;
   }
-  setExcavationData(){
-    this.excavationDetails.excavationMethod = this.getExcavation.value['excavationMethod'];
-    this.excavationDetails.excavationType = this.getExcavation.value['excavationType'];
-    this.excavationDetails.excavationDuration = this.getExcavation.value['excavationDuration'];
-    this.excavationDetails.excavationDescription = this.getExcavation.value['excavationDescription'];
-  }
   setStreetName(stName: string){
-    this.setExcavationData();
-    this.excavationDetails.excavationLocation.street=stName;
-    this.excavationDataForm.patchValue(
-      this.excavationDetails
-    )
-    
+    console.log(this.excavationDataForm);
+    this.excavationDataForm.get('excavationLocation')?.patchValue({
+      street: stName
+    });
   }
 
   setCityName(cityName:string){
-    this.setExcavationData();
-    this.excavationDetails.excavationLocation.city=cityName;
-    this.excavationDataForm.patchValue(
-      this.excavationDetails
-    )
+    // this.excavationDetails.excavationLocation.city=cityName;
+    this.excavationDataForm.get('excavationLocation')?.patchValue({
+      city: cityName
+    });
+    // this.permit.excavation = this.excavationDetails;
   }
+
   setAreaName(areaName:string){
-    this.setExcavationData();
-    this.excavationDetails.excavationLocation.area=areaName;
-    this.excavationDataForm.patchValue(
-      this.excavationDetails
-    )
+    this.excavationDataForm.get('excavationLocation')?.patchValue({
+      area: areaName
+    });
   }
 
   resetExcavationDetails(){
+    localStorage.removeItem('excavationForm');
     this.excavationDataForm.reset();
   }
 
+  // GIS
+  setLineCoords(GISLine: L.LatLng[]|undefined){
+    console.log(GISLine);
+    this.GISLine = GISLine;
+  }
+  get getLineCoords(){
+    return this.GISLine
+  }
 
   // Permit
   get getDate(){
@@ -125,12 +129,20 @@ export class DataService {
     }
     console.log(this.permit);
   }
-
+  get isPermit():boolean{
+    if(this.permit){
+      return true
+    }
+    return false;
+  }
   setPermit(permit: Permit){
     this.permits.push(permit);
   }
    getPermit(permitId: string){
     return this.permits[+permitId]
+  }
+  get getCurrentPermit(){
+    return this.permit
   }
 
   get getPermits(){

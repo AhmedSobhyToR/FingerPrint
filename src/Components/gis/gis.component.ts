@@ -27,6 +27,10 @@ export class GISComponent implements AfterViewInit{
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(this.map);
+    if (this.dataSer.getLineCoords) {
+      // If saved coordinates are available, create a new polyline and add it to the map
+      this.lastLine = L.polyline(this.dataSer.getLineCoords, { color: 'red' }).addTo(this.map);
+  }
 
     this.map.on('click', (e: L.LeafletMouseEvent) => this.onMapClick(e));
 }
@@ -39,7 +43,8 @@ private onMapClick(e: L.LeafletMouseEvent): void {
         if (this.lastLine) {
             this.map.removeLayer(this.lastLine);
         }
-        this.lastLine = L.polyline(this.points, { color: 'blue' }).addTo(this.map);
+        this.lastLine = L.polyline(this.points, { color: 'red' }).addTo(this.map);
+        this.dataSer.setLineCoords(this.points);
 
         this.getStreetNames();
         this.getCityAndAreaName(this.points[0]);
@@ -95,4 +100,7 @@ getCityAndAreaName(latlng: L.LatLng) {
     .catch(error => console.error('Error fetching location data:', error));
 }
 
+get getIsLineDrawn(){
+  return this.dataSer.getLineCoords
+}
 }

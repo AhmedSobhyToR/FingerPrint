@@ -22,8 +22,8 @@ export class SelectProjectComponent {
 
   ngOnInit(){
     this.availableProjects = this.projects.filter(proj => proj.projectStatus === 'Accepted')
-    if(this.dataSer.permit){
-       this.selectedProject = this.dataSer.permit.project;
+    if(this.dataSer.isPermit){
+       this.selectedProject = this.dataSer.getCurrentPermit.project;
     }
 
   }
@@ -32,7 +32,12 @@ export class SelectProjectComponent {
   }
 
   onCancel(){
-    this.dataSer.setPermitRequestStatus(2);
+    this.dataSer.setPermitRequestStatus(0);
+    if(this.dataSer.getExcavationDetails){
+      this.dataSer.resetExcavationDetails();
+    }
+    this.dataSer.setLineCoords(undefined);
+
   }
   onSubmit(){
     this.dataSer.setProject(this.selectedProject);

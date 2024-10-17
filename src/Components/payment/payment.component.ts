@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import {  ReactiveFormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Route, Router, RouterLink } from '@angular/router';
 import { DataService } from '../Services/data.service';
-import { NgIf } from '@angular/common';
+import { Location, NgIf } from '@angular/common';
 import { ProgressBarComponent } from "../progress-bar/progress-bar.component";
 
 @Component({
@@ -15,29 +15,27 @@ import { ProgressBarComponent } from "../progress-bar/progress-bar.component";
 export class PaymentComponent {
   showConfirmation:boolean = false;
   showFailedPayment:boolean = false;
-  constructor(private dataSer:DataService){
+  constructor(private dataSer:DataService, private router: Router){
 
   }
   ngOnInit(){
-    console.log(this.dataSer.permit);
-    this.getUserDetails();
-    this.getProjectDetails();
-    this.getExcavationDetails();
+    console.log(this.dataSer.getCurrentPermit);
+
   }
 
-  getDate(){
-    return this.dataSer.permit.date
+  get getDate(){
+    return this.dataSer.getCurrentPermit.date
   }
-   getUserDetails(){
+   get getUserDetails(){
     return this.dataSer.getUser;
   }
-   getProjectDetails(){
+  get  getProjectDetails(){
     return this.dataSer.getProject;
   }
-   getExcavationDetails(){
+  get  getExcavationDetails(){
     return this.dataSer.getExcavationDetails;
   }
-  togglePaymentConfirmation(){
+   togglePaymentConfirmation(){
     this.showConfirmation = !this.showConfirmation;
   }
   onCancelPayment(){
@@ -48,18 +46,26 @@ export class PaymentComponent {
     if(this.dataSer.getUser.balance>= this.dataSer.getExcavationDetails.price!){
       this.dataSer.getUser.balance = this.dataSer.getUser.balance - this.dataSer.getExcavationDetails.price!;
       this.togglePaymentConfirmation();
-      this.dataSer.setPermit(this.dataSer.permit);
+      this.dataSer.setPermit(this.dataSer.getCurrentPermit);
       this.dataSer.setPermitRequestStatus(3);
+      this.dataSer.resetExcavationDetails();
+      this.router.navigate(["/request-review"])
+      this.dataSer.setLineCoords(undefined);
+      
     }
     else{
       this.showFailedPayment = true;
     }
+  }
+  onPrev(){
+    this.dataSer.setPermitRequestStatus(1);
 
-    
   }
   onCancel(){
     this.dataSer.setPermitRequestStatus(0);
     this.dataSer.resetExcavationDetails();
+    this.dataSer.setLineCoords(undefined);
+
   }
   onSubmit(){
     this.showConfirmation = true;
