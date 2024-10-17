@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Project } from '../Models/project.model';
-import { mockProjects } from './mockProject';
+import { mockProjects } from '../MockData/mockProject';
 import { RouterLink } from '@angular/router';
 import { DataService } from '../Services/data.service';
 import { ProgressBarComponent } from "../progress-bar/progress-bar.component";

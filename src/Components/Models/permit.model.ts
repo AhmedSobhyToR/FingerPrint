@@ -11,4 +11,5 @@ export interface Permit{
     RequestStatus: number;
     RequestStatusJson?: string;
     date: string | Date;
+    isRequestMade:boolean;
 }

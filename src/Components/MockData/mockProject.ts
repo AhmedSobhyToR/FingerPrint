@@ -1,4 +1,6 @@
-export const mockProjects = [
+import { Project } from "../Models/project.model";
+
+export const mockProjects:Project[] = [
     {
         projectId: 'P1',
         projectName: 'Bridge Construction',
