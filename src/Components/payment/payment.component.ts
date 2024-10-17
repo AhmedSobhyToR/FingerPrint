@@ -50,8 +50,10 @@ export class PaymentComponent {
       this.togglePaymentConfirmation();
       this.dataSer.setPermit(this.dataSer.permit);
       this.dataSer.setPermitRequestStatus(3);
+      this.dataSer.resetExcavationDetails();
     }
     else{
+      this.dataSer.resetExcavationDetails();
       this.showFailedPayment = true;
     }
 

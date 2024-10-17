@@ -1,4 +1,4 @@
-import { Component, Input, NgModule } from '@angular/core';
+import { Component, DestroyRef, inject, Input, NgModule } from '@angular/core';
 import { Project } from '../Models/project.model';
 import { RouterLink } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -8,7 +8,7 @@ import { Excavation } from '../Models/excavation.model';
 import { ProgressBarComponent } from "../progress-bar/progress-bar.component";
 import { ExcavationDataEnums } from '../Enums/excavation-data.enum';
 import { GISComponent } from "../gis/gis.component";
-import { Subscription } from 'rxjs';
+import { debounceTime, Subscription } from 'rxjs';
 @Component({
   selector: 'app-excavation-data',
   standalone: true,
@@ -21,8 +21,9 @@ export class ExcavationDataComponent {
   excavationMethods!: string[];
   excavationTypes!: string[];
   streetGISSubscription!: Subscription;
+  private destroyRef = inject(DestroyRef);
+
   constructor(private dataSer:DataService){
-    
   }
 
   excavationDataForm: FormGroup = new FormGroup({
@@ -39,10 +40,17 @@ export class ExcavationDataComponent {
   })  
 
   ngOnInit(){
+    this.dataSer.setExcavationForm(this.excavationDataForm);
+
+    //  this.dataSer.setExcavationForm(this.excavationDataForm);
+    // this.dataSer.excavationDataForm = this.excavationDataForm;
+
+
     this.loadExcavationData();
-    // console.log(this.dataSer.permit);
     this.isFormFilled();
-    this.dataSer.setExcavationDetails(this.excavationDataForm);
+    this.fillingForm();
+    // console.log(this.dataSer.permit);
+    // this.isFormFilled();
    
   }
 
@@ -56,29 +64,39 @@ export class ExcavationDataComponent {
     this.excavationMethods =this.excavationDataEnums.ExcavationMethods
     this.excavationTypes = this.excavationDataEnums.ExcavationTypes
   }
-
-  // Check if form is already filled
-  isFormFilled(){
-    if(this.dataSer.getExcavation){
-      this.excavationDataForm.patchValue(
-        this.dataSer.getExcavationDetails
-      )
-    }
-  }
-
   onCancel(){
-    this.excavationDataForm.reset();
+    // this.excavationDataForm.reset();
+    this.dataSer.resetExcavationDetails();
     this.dataSer.setPermitRequestStatus(0);
   }
   onSubmit(){
     if(!this.excavationDataForm.valid){
       return
     }
-    this.dataSer.setExcavationDetails(this.excavationDataForm);
+    this.dataSer.setExcavationDetails();
     this.dataSer.setPermitRequestStatus(2);
     // console.log(this.dataSer.getExcavationDetails);
 
   }
+  isFormFilled(){
+    const savedForm = window.localStorage.getItem('excavationForm');
+    if(savedForm){
+      this.excavationDataForm.setValue(JSON.parse(savedForm));
+      this.dataSer.excavationDataForm = JSON.parse(savedForm);
+
+    }
+  }
+  fillingForm(){
+    const Subscription =this.excavationDataForm.valueChanges.pipe(debounceTime(200)).subscribe({
+      next: (value) =>{
+        window.localStorage.setItem("excavationForm",JSON.stringify(value));
+        console.log(value);
+        // this.dataSer.excavationDetails = value;
+      }
+    })
+    this.destroyRef.onDestroy(()=> Subscription.unsubscribe())
+  }
+  
 
   get excavationMethod(){
     return this.excavationDataForm.get('excavationMethod')
