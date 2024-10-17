@@ -87,3 +87,8 @@
 .full-row div{
     width: 93%;
 }
+.permit-details-buttons{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}

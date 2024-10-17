@@ -1,0 +1,41 @@
+import { Component } from '@angular/core';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { UserAuthService } from '../Services/user-auth.service';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-login',
+  standalone: true,
+  imports: [ReactiveFormsModule, FormsModule],
+  templateUrl: './login.component.html',
+  styleUrl: './login.component.css'
+})
+export class LoginComponent {
+  constructor(private authSer: UserAuthService,
+   
+  ){
+
+  }
+
+  loginForm = new FormGroup({
+    username: new FormControl('', [Validators.required]),
+    password: new FormControl('', [Validators.required])
+  })
+
+  get getUsername(){
+    return this.loginForm.value.username;
+  }
+  get getPassword(){
+    return this.loginForm.value.password;
+  }
+
+  
+  onLogin(){
+    if(!this.loginForm.valid){
+      return;
+    }
+    if(this.loginForm.controls.username.valid && this.loginForm.controls.password.valid){
+        this.authSer.login(this.getUsername!,this.getPassword!);
+      }
+  }
+}

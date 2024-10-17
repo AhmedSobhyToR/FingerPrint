@@ -1,5 +1,8 @@
 <div>
-<a routerLink="/select-project"><input type="button" value="New Request" (click)="createPermitRequest()"></a>
+    @if (getUserRole === 'user') {
+            <a routerLink="/select-project"><input type="button" value="New Request" (click)="createPermitRequest()"></a>
+
+        }
 <table>
     <thead>
         <th>Request ID</th>
@@ -29,7 +32,13 @@
         }
 
         @else {
-              <td colspan="8" class="no-data">You have not created any permit requests</td>
+            @if (getUserRole === 'user') {
+                <td colspan="8" class="no-data">You have not created any permit requests</td>
+            }
+            @else if (getUserRole === 'admin') {
+                <td colspan="8" class="no-data">There are no permit requests to review</td>
+
+            }
            
         }
     </tbody>

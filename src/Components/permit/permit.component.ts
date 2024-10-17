@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { DataService } from '../Services/data.service';
 import { Router, RouterLink } from '@angular/router';
 import { Permit } from '../Models/permit.model';
+import { UserAuthService } from '../Services/user-auth.service';
 
 @Component({
   selector: 'app-permit',
@@ -12,7 +13,9 @@ import { Permit } from '../Models/permit.model';
 })
 export class PermitComponent {
 
-  constructor(private dataSer: DataService, private router:Router){
+  constructor(private dataSer: DataService,
+    private authSer: UserAuthService,
+     private router:Router){
   }
   ngOnInit(){
 
@@ -33,6 +36,10 @@ export class PermitComponent {
 
   viewPermit(permitId: string){
     this.router.navigate(['/permit',permitId])
+  }
+
+  get getUserRole(){
+    return this.dataSer.getUser.role
   }
 
 }

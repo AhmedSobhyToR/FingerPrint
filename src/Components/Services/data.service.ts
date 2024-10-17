@@ -5,6 +5,7 @@ import { Excavation } from '../Models/excavation.model';
 import { User } from '../Models/user.model';
 import { Permit } from '../Models/permit.model';
 import { DatePipe } from '@angular/common';
+import { UserAuthService } from './user-auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -17,15 +18,12 @@ export class DataService {
   private permits:Permit[]= [];
   private excavationDataForm!: FormGroup;
   private GISLine!: L.LatLng[]|undefined;
+  constructor(){}
 
+  
   // User
-  setUser(){
-    this.user={
-      name:"Ahmed Sobhy",
-      phone:"0100000000",
-      paymentMethod:"Credit Card",
-      balance: 3000
-    }
+  setUser(currentUser: User){
+    this.user = currentUser;
   }
 
   get getUser(){
@@ -125,7 +123,8 @@ export class DataService {
       excavation : this.excavationDetails,
       status: 'Pending',
       RequestStatus: 0,
-      date: this.getDate
+      date: this.getDate,
+      isRequestMade: false
     }
     console.log(this.permit);
   }

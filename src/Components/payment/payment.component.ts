@@ -43,8 +43,8 @@ export class PaymentComponent {
   }
   onConfirmPayment(){
     
-    if(this.dataSer.getUser.balance>= this.dataSer.getExcavationDetails.price!){
-      this.dataSer.getUser.balance = this.dataSer.getUser.balance - this.dataSer.getExcavationDetails.price!;
+    if(this.dataSer.getUser.balance! >= this.dataSer.getExcavationDetails.price!){
+      this.dataSer.getUser.balance = this.dataSer.getUser.balance! - this.dataSer.getExcavationDetails.price!;
       this.togglePaymentConfirmation();
       this.dataSer.setPermit(this.dataSer.getCurrentPermit);
       this.dataSer.setPermitRequestStatus(3);

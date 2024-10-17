@@ -1,6 +1,8 @@
 export interface User{
     name:string;
+    password:string;
     phone:string;
-    paymentMethod:string;
-    balance:number;
+    role:string;
+    paymentMethod?:string;
+    balance?:number;
 }

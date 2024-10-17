@@ -7,7 +7,17 @@
             </div>
             <h2>Permit Request Details</h2>
         </div>
-        <input type="button" value="Back" (click)="goBack()">
+        <div class="permit-details-buttons">
+            <input type="button" value="Back" (click)="goBack()">
+            @if (getUserRole === 'admin') {
+                <div class="control-buttons" *ngIf="!isRequestMade">
+                    <input type="button" value="Reject" class="cancel" (click)="rejectRequest()">
+                    <input type="button" value="Accept" class="confirm" (click)="acceptRequest()">
+                </div>
+            }
+        </div>
+
+
     </div>
     <div class="permit-details-body">
 
