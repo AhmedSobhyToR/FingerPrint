@@ -17,5 +17,7 @@ export const routes: Routes = [
     {path:'payment', component:PaymentComponent},
     {path:'request-review', component:RequestReviewComponent},
     {path:'permit', component:PermitComponent},
-    {path:'permit/:id', component:PermitDetailsComponent}
+    {path:'permit/:id', component:PermitDetailsComponent},
+    {path:'**',  redirectTo:'/login', pathMatch: 'full'},
+
 ];
