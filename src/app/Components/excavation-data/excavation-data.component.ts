@@ -1,14 +1,16 @@
 import { Component, DestroyRef, inject, Input, NgModule } from '@angular/core';
-import { Project } from '../Models/project.model';
+import { Project } from '../../Models/project.model';
 import { RouterLink } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { JsonPipe } from '@angular/common';
-import { DataService } from '../Services/data.service';
-import { Excavation } from '../Models/excavation.model';
-import { ProgressBarComponent } from "../progress-bar/progress-bar.component";
-import { ExcavationDataEnums } from '../Enums/excavation-data.enum';
+import { Excavation } from '../../Models/excavation.model';
+
 import { GISComponent } from "../gis/gis.component";
 import { debounceTime, Subscription } from 'rxjs';
+import { ProgressBarComponent } from '../shared/progress-bar/progress-bar.component';
+import { DataService } from '../../Services/data.service';
+import { ExcavationDataEnums } from '../../Enums/excavation-data.enum';
+
 @Component({
   selector: 'app-excavation-data',
   standalone: true,

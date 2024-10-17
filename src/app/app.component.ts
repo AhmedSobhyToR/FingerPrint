@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from "../Components/header/header.component";
-import { MainComponent } from "../Components/main/main.component";
+
 import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+import { HeaderComponent } from './Components/shared/header/header.component';
+import { MainComponent } from './Components/main/main.component';
+
 @Component({
   selector: 'app-root',
   standalone: true,

@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { DataService } from '../Services/data.service';
+
 import { Router, RouterLink } from '@angular/router';
-import { Permit } from '../Models/permit.model';
-import { UserAuthService } from '../Services/user-auth.service';
+import { Permit } from '../../Models/permit.model';
+import { DataService } from '../../Services/data.service';
+import { UserAuthService } from '../../Services/user-auth.service';
+
 
 @Component({
   selector: 'app-permit',

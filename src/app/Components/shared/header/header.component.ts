@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
-import { DataService } from '../Services/data.service';
 import { Router, RouterLink } from '@angular/router';
-import { ScrollingService } from '../Services/scrolling.service';
-import { UserAuthService } from '../Services/user-auth.service';
 import { NgIf } from '@angular/common';
+import { DataService } from '../../../Services/data.service';
+import { ScrollingService } from '../../../Services/scrolling.service';
+import { UserAuthService } from '../../../Services/user-auth.service';
+
+
 @Component({
   selector: 'app-header',
   standalone: true,

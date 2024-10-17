@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import {  ReactiveFormsModule } from '@angular/forms';
 import { Route, Router, RouterLink } from '@angular/router';
-import { DataService } from '../Services/data.service';
 import { Location, NgIf } from '@angular/common';
-import { ProgressBarComponent } from "../progress-bar/progress-bar.component";
+import { ProgressBarComponent } from '../shared/progress-bar/progress-bar.component';
+import { DataService } from '../../Services/data.service';
 
 @Component({
   selector: 'app-payment',

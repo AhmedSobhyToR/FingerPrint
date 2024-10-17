@@ -1,9 +1,10 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { Project } from '../Models/project.model';
-import { mockProjects } from '../MockData/mockProject';
+import { Project } from '../../Models/project.model';
+
 import { RouterLink } from '@angular/router';
-import { DataService } from '../Services/data.service';
-import { ProgressBarComponent } from "../progress-bar/progress-bar.component";
+import { ProgressBarComponent } from '../shared/progress-bar/progress-bar.component';
+import { DataService } from '../../Services/data.service';
+import { mockProjects } from '../../MockData/mockProject';
 
 @Component({
   selector: 'app-select-project',
@@ -16,7 +17,8 @@ export class SelectProjectComponent {
   projects:Project[] = mockProjects;
   availableProjects:Project[] = [];
   selectedProject!: Project;
-  constructor(private dataSer:DataService){
+  constructor(private dataSer:DataService
+  ){
 
   }
 

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { ProgressBarComponent } from "../progress-bar/progress-bar.component";
+
 import { RouterLink } from '@angular/router';
+import { ProgressBarComponent } from '../shared/progress-bar/progress-bar.component';
 
 @Component({
   selector: 'app-request-review',

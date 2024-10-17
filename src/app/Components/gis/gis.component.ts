@@ -1,6 +1,6 @@
 import { AfterViewInit, Component } from '@angular/core';
 import * as L from 'leaflet';
-import { DataService } from '../Services/data.service';
+import { DataService } from '../../Services/data.service';
 
 @Component({
   selector: 'app-gis',

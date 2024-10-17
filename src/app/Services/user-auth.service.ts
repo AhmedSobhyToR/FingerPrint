@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
-import { User } from '../Models/user.model';
-import { mockUsers } from '../MockData/mockUser';
+
 import { DataService } from './data.service';
 import { Router } from '@angular/router';
+import { User } from '../Models/user.model';
+import { mockUsers } from '../MockData/mockUser';
+
 
 @Injectable({
   providedIn: 'root'

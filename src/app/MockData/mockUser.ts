@@ -1,5 +1,6 @@
 import { User } from "../Models/user.model";
 
+
 export const mockUsers:User[] = [
     {
         name:"user1",

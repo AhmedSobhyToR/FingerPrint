@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { DataService } from '../Services/data.service';
+
 import { ActivatedRoute } from '@angular/router';
-import { Permit } from '../Models/permit.model';
+import { Permit } from '../../Models/permit.model';
 import { Location, NgIf } from '@angular/common';
-import { UserAuthService } from '../Services/user-auth.service';
+import { DataService } from '../../Services/data.service';
 
 @Component({
   selector: 'app-permit-details',
