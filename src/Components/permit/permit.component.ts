@@ -24,7 +24,10 @@ export class PermitComponent {
     this.dataSer.createPermitRequest();
   }
 
-  getPermits(){
+  get getUserPermits(){
+    return this.dataSer.getUser.permitRequests!;
+  }
+  get getAllPermits(){
     return this.dataSer.getPermits;
   }
   getDetailedLocation(permit: Permit){

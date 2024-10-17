@@ -12,7 +12,7 @@ export class UserAuthService {
   private loggedUser!:User;
   constructor(private dataSer: DataService,  private router: Router) { 
     this.setUsers();
-    // localStorage.removeItem('role')
+    localStorage.removeItem('role')
   }
 
   setUsers(){
@@ -22,13 +22,14 @@ export class UserAuthService {
   login(userName:string, password:string){
     const loggedUser = this.users.find(user=> user.name === userName)!;
     console.log(loggedUser);
+    if(!loggedUser) return;
     console.log(this.users);
     this.loggedUser = loggedUser;
     if(loggedUser!.password === password){
         // let token = '123';
         localStorage.setItem('role', loggedUser!.role);
         this.dataSer.setUser(this.currentUser);
-          this.router.navigate(['/permit']);
+        this.router.navigate(['/permit']);
     }
   }
 

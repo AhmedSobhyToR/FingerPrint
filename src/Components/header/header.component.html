@@ -1,5 +1,5 @@
 <nav>
-    <a routerLink="/" routerLinkActive="router-link-active" ><img src="assets/logom.png" id="logo" alt="logo"></a>
+    <a (click)="onLogo()" routerLinkActive="router-link-active" ><img src="assets/logom.png" id="logo" alt="logo"></a>
     @if (isUserLogged) {
     <div class="user-info">
         <div class="user-info-left">

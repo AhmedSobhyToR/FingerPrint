@@ -16,6 +16,8 @@
 }
 .permit-details-header-right{
     display: flex;
+    align-self: center;
+    margin: auto 0;
     align-items: center;
     gap: 1rem;
 }

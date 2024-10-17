@@ -6,6 +6,7 @@ import { User } from '../Models/user.model';
 import { Permit } from '../Models/permit.model';
 import { DatePipe } from '@angular/common';
 import { UserAuthService } from './user-auth.service';
+import { mockUsers } from '../MockData/mockUser';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,10 @@ export class DataService {
   private permits:Permit[]= [];
   private excavationDataForm!: FormGroup;
   private GISLine!: L.LatLng[]|undefined;
-  constructor(){}
+  private users = mockUsers;
+  constructor(){
+
+  }
 
   
   // User
@@ -135,6 +139,8 @@ export class DataService {
     return false;
   }
   setPermit(permit: Permit){
+    const currentUser = this.users.find(user => user.name === this.user.name);
+    currentUser?.permitRequests?.push(permit);
     this.permits.push(permit);
   }
    getPermit(permitId: string){
@@ -146,6 +152,10 @@ export class DataService {
 
   get getPermits(){
     return this.permits;
+  }
+
+  get getUserPermits(){
+    return this.user.permitRequests;
   }
 
   setPermitRequestStatus(requestStatus: number){

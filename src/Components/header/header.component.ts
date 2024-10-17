@@ -40,4 +40,16 @@ export class HeaderComponent {
     localStorage.removeItem('role');
     this.router.navigate(['/login']);
   }
+
+  onLogo(){
+    if(this.authSer.isUserLogin){
+      if(this.authSer.currentUser.role === 'user'){
+        this.router.navigate(['./'])
+      }
+      else{
+        this.router.navigate(['/permit'])
+        
+      }
+    }
+  }
 }

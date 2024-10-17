@@ -24,7 +24,7 @@ export class PermitDetailsComponent {
   ngOnInit(){
     this.permitId = this.activeRouter.snapshot.paramMap.get('id')!;
      console.log(this.permitId);
-    this.permit = this.dataSer.getPermits.find(per=> per.id === this.permitId)!;
+    this.permit = this.dataSer.getPermits!.find(per=> per.id === this.permitId)!;
   }
 
   getDetailedLocation(){

@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+  invalidLogin:boolean = false;
   constructor(private authSer: UserAuthService,
    
   ){
@@ -21,13 +22,22 @@ export class LoginComponent {
     username: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required])
   })
-
   get getUsername(){
+    return this.loginForm.controls.username;
+  }
+
+  get getPassword(){
+    return this.loginForm.controls.password;
+  }
+
+  get getUsernameValue(){
     return this.loginForm.value.username;
   }
-  get getPassword(){
+  get getPasswordValue(){
     return this.loginForm.value.password;
   }
+
+
 
   
   onLogin(){
@@ -35,7 +45,8 @@ export class LoginComponent {
       return;
     }
     if(this.loginForm.controls.username.valid && this.loginForm.controls.password.valid){
-        this.authSer.login(this.getUsername!,this.getPassword!);
+        this.authSer.login(this.getUsernameValue!,this.getPasswordValue!);
       }
+      this.invalidLogin = true;
   }
 }

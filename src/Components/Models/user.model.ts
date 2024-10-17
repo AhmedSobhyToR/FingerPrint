@@ -1,3 +1,5 @@
+import { Permit } from "./permit.model";
+
 export interface User{
     name:string;
     password:string;
@@ -5,4 +7,5 @@ export interface User{
     role:string;
     paymentMethod?:string;
     balance?:number;
+    permitRequests?:Permit[];
 }
