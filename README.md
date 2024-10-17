@@ -14,9 +14,11 @@ FingerPrint is an application designed to streamline the process of submitting a
 
 Test Accounts:
 User 1:
+
     Username: user1
     Password: user1
 User 2:
+
     Username: user2
     Password: user2
 User 3:
@@ -28,6 +30,7 @@ Admin:
 
     Username: admin
     Password: admin
+    
 Technologies Used: Angular 18, TypeScript
 
 
