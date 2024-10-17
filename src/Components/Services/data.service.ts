@@ -10,12 +10,13 @@ import { DatePipe } from '@angular/common';
   providedIn: 'root'
 })
 export class DataService {
-  user!:User;
-  excavationDetails!:Excavation;
-  project!:Project;
-  permit!:Permit;
-  permits:Permit[]= [];
-  excavationDataForm!: FormGroup;
+  private user!:User;
+  private excavationDetails!:Excavation;
+  private project!:Project;
+  private permit!:Permit;
+  private permits:Permit[]= [];
+  private excavationDataForm!: FormGroup;
+  private GISLine!: L.LatLng[]|undefined;
 
   // User
   setUser(){
@@ -97,6 +98,14 @@ export class DataService {
     this.excavationDataForm.reset();
   }
 
+  // GIS
+  setLineCoords(GISLine: L.LatLng[]|undefined){
+    console.log(GISLine);
+    this.GISLine = GISLine;
+  }
+  get getLineCoords(){
+    return this.GISLine
+  }
 
   // Permit
   get getDate(){
@@ -120,12 +129,20 @@ export class DataService {
     }
     console.log(this.permit);
   }
-
+  get isPermit():boolean{
+    if(this.permit){
+      return true
+    }
+    return false;
+  }
   setPermit(permit: Permit){
     this.permits.push(permit);
   }
    getPermit(permitId: string){
     return this.permits[+permitId]
+  }
+  get getCurrentPermit(){
+    return this.permit
   }
 
   get getPermits(){

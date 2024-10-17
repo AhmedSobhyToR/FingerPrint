@@ -2,14 +2,14 @@
 <a routerLink="/select-project"><input type="button" value="New Request" (click)="createPermitRequest()"></a>
 <table>
     <thead>
-        <th>Permit ID</th>
+        <th>Request ID</th>
         <th>Project ID</th>
         <th>Project Name</th>
         <th>Excavation Duration</th>
         <th>Excavation Location</th>
         <th>Excavation Price</th>
         <th>Request Date</th>
-        <th>Status</th>
+        <th>Request Status</th>
     </thead>
     <tbody>
         @if (getPermits().length>0) {

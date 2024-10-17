@@ -73,6 +73,8 @@ export class ExcavationDataComponent {
     // this.excavationDataForm.reset();
     this.dataSer.resetExcavationDetails();
     this.dataSer.setPermitRequestStatus(0);
+    this.dataSer.setLineCoords(undefined);
+
   }
   onSubmit(){
     if(!this.excavationDataForm.valid){

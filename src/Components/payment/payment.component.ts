@@ -19,25 +19,23 @@ export class PaymentComponent {
 
   }
   ngOnInit(){
-    console.log(this.dataSer.permit);
-    this.getUserDetails();
-    this.getProjectDetails();
-    this.getExcavationDetails();
+    console.log(this.dataSer.getCurrentPermit);
+
   }
 
-  getDate(){
-    return this.dataSer.permit.date
+  get getDate(){
+    return this.dataSer.getCurrentPermit.date
   }
-   getUserDetails(){
+   get getUserDetails(){
     return this.dataSer.getUser;
   }
-   getProjectDetails(){
+  get  getProjectDetails(){
     return this.dataSer.getProject;
   }
-   getExcavationDetails(){
+  get  getExcavationDetails(){
     return this.dataSer.getExcavationDetails;
   }
-  togglePaymentConfirmation(){
+   togglePaymentConfirmation(){
     this.showConfirmation = !this.showConfirmation;
   }
   onCancelPayment(){
@@ -48,17 +46,16 @@ export class PaymentComponent {
     if(this.dataSer.getUser.balance>= this.dataSer.getExcavationDetails.price!){
       this.dataSer.getUser.balance = this.dataSer.getUser.balance - this.dataSer.getExcavationDetails.price!;
       this.togglePaymentConfirmation();
-      this.dataSer.setPermit(this.dataSer.permit);
+      this.dataSer.setPermit(this.dataSer.getCurrentPermit);
       this.dataSer.setPermitRequestStatus(3);
       this.dataSer.resetExcavationDetails();
       this.router.navigate(["/request-review"])
+      this.dataSer.setLineCoords(undefined);
+      
     }
     else{
-
       this.showFailedPayment = true;
     }
-
-    
   }
   onPrev(){
     this.dataSer.setPermitRequestStatus(1);
@@ -67,6 +64,8 @@ export class PaymentComponent {
   onCancel(){
     this.dataSer.setPermitRequestStatus(0);
     this.dataSer.resetExcavationDetails();
+    this.dataSer.setLineCoords(undefined);
+
   }
   onSubmit(){
     this.showConfirmation = true;
