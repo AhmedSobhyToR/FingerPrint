@@ -100,4 +100,7 @@ getCityAndAreaName(latlng: L.LatLng) {
     .catch(error => console.error('Error fetching location data:', error));
 }
 
+get getIsLineDrawn(){
+  return this.dataSer.getLineCoords
+}
 }
