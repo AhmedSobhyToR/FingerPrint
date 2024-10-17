@@ -5,9 +5,10 @@ FingerPrint is an application designed to streamline the process of submitting a
 * Project Selection: Users can choose the relevant project for their excavation request.
 * Excavation Details: Enter crucial information such as:
     * Excavation method
-    * Location
-    * Types of excavation
-    * Methods involved
+    * Excavation Type
+    * Excavation Duration
+    * Excavation Location
+    * Excavation Description
 * GIS Mapping: Users can draw lines on the GIS map to specify the excavation location.
 * Invoice and Payment: After submitting the request, an invoice is generated, and the user can proceed with payment.
 * Request Management: Users can view all their submitted permit requests and track the status of each.
