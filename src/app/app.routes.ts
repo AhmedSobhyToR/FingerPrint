@@ -9,7 +9,7 @@ import { PermitDetailsComponent } from '../Components/permit-details/permit-deta
 import { LoginComponent } from '../Components/login/login.component';
 
 export const routes: Routes = [
-    {path:'',  redirectTo:'/permit', pathMatch: 'full'},
+    {path:'',  redirectTo:'/login', pathMatch: 'full'},
     {path:'login',  component:LoginComponent},
     {path:'main', component:MainComponent},
     {path:'select-project', component:SelectProjectComponent},
