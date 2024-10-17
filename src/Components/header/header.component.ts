@@ -43,13 +43,7 @@ export class HeaderComponent {
 
   onLogo(){
     if(this.authSer.isUserLogin){
-      if(this.authSer.currentUser.role === 'user'){
-        this.router.navigate(['./'])
-      }
-      else{
-        this.router.navigate(['/permit'])
-        
-      }
+        this.router.navigate(['./permit'])
     }
   }
 }
