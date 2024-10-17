@@ -33,6 +33,7 @@ Admin:
     Password: admin
     
 Technologies Used: Angular 18, TypeScript
+
 <img src="https://angular.io/assets/images/logos/angular/angular.svg" alt="angular"  height="60"/>
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" height="50"/> 
 
