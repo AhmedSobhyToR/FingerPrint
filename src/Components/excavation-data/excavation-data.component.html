@@ -124,7 +124,8 @@
     </div>
                 <div class="control-buttons">
                     <div class="control-buttons-left">
-                        <a [routerLink]="['/select-project']"><input type="button" value="Prev" id="prev"></a>
+                        <a [routerLink]="['/select-project']"><input type="button" value="Prev" id="prev"
+                            (click)="onPrev()"></a>
                     </div>
                     <div class="control-buttons-right">
                        <a routerLink="/permit"><input type="button" value="Cancel" class="cancel" (click)="onCancel()"></a>   

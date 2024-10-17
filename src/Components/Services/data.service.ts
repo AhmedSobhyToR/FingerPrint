@@ -23,7 +23,7 @@ export class DataService {
       name:"Ahmed Sobhy",
       phone:"0100000000",
       paymentMethod:"Credit Card",
-      balance: 5000
+      balance: 3000
     }
   }
 
@@ -61,7 +61,8 @@ export class DataService {
         city: this.getExcavation.get('excavationLocation')?.value['city']
       },
       excavationDescription:this.getExcavation.value['excavationDescription'],
-      price: Math.ceil(Math.random()* 1700)
+      // price: Math.ceil(Math.random()* 1700)
+      price: 1200
     }
     this.permit.excavation = this.excavationDetails;
   }

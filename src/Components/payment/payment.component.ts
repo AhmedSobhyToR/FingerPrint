@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import {  ReactiveFormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Route, Router, RouterLink } from '@angular/router';
 import { DataService } from '../Services/data.service';
-import { NgIf } from '@angular/common';
+import { Location, NgIf } from '@angular/common';
 import { ProgressBarComponent } from "../progress-bar/progress-bar.component";
 
 @Component({
@@ -15,7 +15,7 @@ import { ProgressBarComponent } from "../progress-bar/progress-bar.component";
 export class PaymentComponent {
   showConfirmation:boolean = false;
   showFailedPayment:boolean = false;
-  constructor(private dataSer:DataService){
+  constructor(private dataSer:DataService, private router: Router){
 
   }
   ngOnInit(){
@@ -51,13 +51,18 @@ export class PaymentComponent {
       this.dataSer.setPermit(this.dataSer.permit);
       this.dataSer.setPermitRequestStatus(3);
       this.dataSer.resetExcavationDetails();
+      this.router.navigate(["/request-review"])
     }
     else{
-      this.dataSer.resetExcavationDetails();
+
       this.showFailedPayment = true;
     }
 
     
+  }
+  onPrev(){
+    this.dataSer.setPermitRequestStatus(1);
+
   }
   onCancel(){
     this.dataSer.setPermitRequestStatus(0);

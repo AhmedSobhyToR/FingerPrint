@@ -64,6 +64,11 @@ export class ExcavationDataComponent {
     this.excavationMethods =this.excavationDataEnums.ExcavationMethods
     this.excavationTypes = this.excavationDataEnums.ExcavationTypes
   }
+
+  onPrev(){
+    // this.dataSer.setPermitRequestStatus(0);
+  }
+
   onCancel(){
     // this.excavationDataForm.reset();
     this.dataSer.resetExcavationDetails();
@@ -82,7 +87,8 @@ export class ExcavationDataComponent {
     const savedForm = window.localStorage.getItem('excavationForm');
     if(savedForm){
       this.excavationDataForm.setValue(JSON.parse(savedForm));
-      this.dataSer.excavationDataForm = JSON.parse(savedForm);
+      this.dataSer.setExcavationForm(this.excavationDataForm);
+      // this.dataSer.excavationDataForm = JSON.parse(savedForm);
 
     }
   }

@@ -7,7 +7,7 @@
         <img src="assets/sack-dollar-solid.svg" alt="cash">
         <div class="control-buttons">
             <input type="button" value="Cancel" class="cancel" (click)="onCancelPayment()">
-            <a routerLink="/request-review">
+            <a>
             <input type="submit" value="Confirm" class="confirm" (click)="onConfirmPayment()">
             </a>
         </div>
@@ -53,7 +53,7 @@
 
     <div class="control-buttons">
         <div class="control-buttons-left">
-            <a routerLink="/excavation-data"><input type="button" value="Prev" id="prev"></a>
+            <a routerLink="/excavation-data"><input type="button" value="Prev" id="prev"(click)="onPrev()" ></a>
         </div>
         <div class="control-buttons-right">
             <a routerLink="/permit"><input type="button" value="Cancel" class="cancel" (click)="onCancel()"></a>
