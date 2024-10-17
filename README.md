@@ -1,8 +1,15 @@
-# FingerPrint is a Permit Request Management System
+# FingerPrint: Permit Request Management System
 
-that allows users to send an excavation permit request and it will be reviewed by admin
+FingerPrint is an application designed to streamline the process of submitting and reviewing excavation permit requests. The system allows users to send an excavation permit request, which is then reviewed and processed by an admin.
 
-some details will be assigned to be inserted like the excavation method, location, type and so on...
+* Project Selection: Users can choose the relevant project for their excavation request.
+* Excavation Details: Enter crucial information such as:
+    Excavation method
+    Location
+    Types of excavation
+    Methods involved
 
-## This project is made by Angular 18 and Typescript
+* Invoice and Payment: After submitting the request, an invoice is generated, and the user can proceed with payment.
+* Request Management: Users can view all their submitted permit requests and track the status of each.
 
+Technologies Used: Angular 18, TypeScript
