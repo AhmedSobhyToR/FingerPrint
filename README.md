@@ -8,9 +8,15 @@ FingerPrint is an application designed to streamline the process of submitting a
     * Location
     * Types of excavation
     * Methods involved
-
+* GIS Mapping: Users can draw lines on the GIS map to specify the excavation location.
 * Invoice and Payment: After submitting the request, an invoice is generated, and the user can proceed with payment.
 * Request Management: Users can view all their submitted permit requests and track the status of each.
+
+<div align="center">
+  <p>Technologies Used: Angular 18, TypeScript</p>
+  <img src="https://angular.io/assets/images/logos/angular/angular.svg" alt="angular" height="62"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" height="50"/>
+</div>
 
 Test Accounts:
 
@@ -32,9 +38,5 @@ Admin:
     Username: admin
     Password: admin
     
-Technologies Used: Angular 18, TypeScript
-
-<img src="https://angular.io/assets/images/logos/angular/angular.svg" alt="angular"  height="60"/>
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" height="50"/> 
 
 
